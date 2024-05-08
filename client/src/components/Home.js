@@ -21,6 +21,7 @@ const Home = () => {
     return (
         <div className="container">
             <h1 className="mt-5 mb-4">Welcome to Bislerium Blogs</h1>
+            <hr className="text-white" />
             {blogs.map(blog => (
                 <div key={blog.id} className="card mb-4">
                     <div className="card-body">

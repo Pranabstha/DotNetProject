@@ -13,7 +13,7 @@ const App = () => {
     return (
         <Router>
             <AuthProvider>
-                <div className="container">
+                <div className="container p-5 pt-4">
                     <Navbar />
                     <Routes>
                         <Route path="/login" element={<Login />} />

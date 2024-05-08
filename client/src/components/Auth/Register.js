@@ -60,6 +60,7 @@ const Register = () => {
     return (
         <div className="auth-container">
             <h2>Register</h2>
+            <hr/>
             {error && <div className="alert alert-danger">{error}</div>}
             <form onSubmit={handleSubmit}>
                 <TextInput
@@ -104,7 +105,8 @@ const Register = () => {
                     value={formData.phoneNumber}
                     onChange={handleChange}
                 />
-                <button type="submit" className="btn btn-primary">Register</button>
+                <hr />
+                <button type="submit" className="btn-auth py-3 mt-4">Register</button>
             </form>
         </div>
     );

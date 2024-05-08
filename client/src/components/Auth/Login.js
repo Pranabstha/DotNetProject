@@ -1,6 +1,7 @@
 ﻿import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'; // Import Axios
+import TextInput from '../Common/TextInput';
 
 const Login = () => {
     const [formData, setFormData] = useState({ userName: '', password: '' });
@@ -42,11 +43,12 @@ const Login = () => {
     return (
         <div className="auth-container">
             <h2>Login</h2>
+            <hr />
             {error && <div className="alert alert-danger">{error}</div>}
-            <form onSubmit={handleSubmit} className="d-flex flex-column gap-4">
+            <form onSubmit={handleSubmit} className="d-flex flex-column gap-3">
                 <div>
                     <label>Username:</label>
-                    <input
+                    <TextInput
                         type="text"
                         name="userName"
                         value={formData.userName}
@@ -56,20 +58,24 @@ const Login = () => {
                 <div>
                     <label>Password:</label>
                     <div className="password-input position-relative">
-                        <input
+                        <TextInput
                             type={showPassword ? 'text' : 'password'}
                             name="password"
                             value={formData.password}
                             onChange={handleChange}
                         />
-                        <i
-                            className={`password-toggle-icon ${showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'}`}
-                            onClick={togglePasswordVisibility}
-                            style={{ cursor: 'pointer' }} // Change cursor to pointer on hover
-                        />
+                        <div className="d-flex mt-3">
+                            <i
+                                className={`password-toggle-icon ${showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'}`}
+                                onClick={togglePasswordVisibility}
+                                style={{ cursor: 'pointer', font: 'Sans-Serif' }} // Change cursor to pointer on hover
+                            ><p className="d-inline-block px-2" style={{ fontFamily:'monospace' }}>Show password</p></i>
+                        </div>
+                        
                     </div>
                 </div>
-                <button type="submit" className="btn btn-login py-3">Login</button>
+                <hr />
+                <button type="submit" className="py-3 btn-auth">Login</button>
             </form>
         </div>
     );
