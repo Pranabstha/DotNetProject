@@ -1,4 +1,6 @@
 using BislariumCW.Data;
+using BislariumCW.Extensions;
+using BislariumCW.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +14,17 @@ builder.Services.AddSwaggerGen();
 
 
 builder.Services.AddDbContext<DBConnect>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DatabaseConnectionString")));
+
+builder.Services.RegisterDependencies();
+builder.Services.ConfigureMapping();
+builder.Services.ConfigureLoggerService();
+builder.Services.ConfigureRepositoryManager();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<UserAuthenticationRepository, UserAuthenticationRepository>();
+
+builder.Services.AddAuthentication();
+builder.Services.ConfigureIdentity();
+builder.Services.ConfigureJWT(builder.Configuration);
 
 var app = builder.Build();
 

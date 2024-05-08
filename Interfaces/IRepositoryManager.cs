@@ -3,11 +3,11 @@ using System.Threading.Tasks;
 
 namespace BislariumCW.Interfaces
 {
-    public interface IRepositoryManager : IDisposable
+    public interface IRepositoryManager
     {
-        IUserAuthenticationRepository UserAuthenticationRepository { get; }
+        IUserAuthenticationRepository UserAuthentication { get; }
         // Additional repository properties can be added here for other entities
 
-        Task<int> SaveChangesAsync();
+        Task SaveAsync();
     }
 }

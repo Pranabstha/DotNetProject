@@ -2,7 +2,7 @@
 using BislariumCW.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Authentication.Controllers
+namespace BislariumCW.Controllers
 {
     public class BaseApiController : ControllerBase
     {
