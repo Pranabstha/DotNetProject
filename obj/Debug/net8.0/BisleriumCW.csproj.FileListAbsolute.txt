@@ -259,3 +259,4 @@ C:\College\Third year\Sem 6\Application Development\CourseWork\CW App dev\Bislar
 C:\College\Third year\Sem 6\Application Development\CourseWork\CW App dev\BislariumCW\obj\Debug\net8.0\BisleriumCW.pdb
 C:\College\Third year\Sem 6\Application Development\CourseWork\CW App dev\BislariumCW\obj\Debug\net8.0\BisleriumCW.genruntimeconfig.cache
 C:\College\Third year\Sem 6\Application Development\CourseWork\CW App dev\BislariumCW\obj\Debug\net8.0\ref\BisleriumCW.dll
+C:\College\Third year\Sem 6\Application Development\CourseWork\CW App dev\BislariumCW\obj\Debug\net8.0\BisleriumCW.sourcelink.json

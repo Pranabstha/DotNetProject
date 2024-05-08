@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using BislariumCW.Dtos;
 using Microsoft.AspNetCore.Identity;
 
 namespace BislariumCW.Interfaces
