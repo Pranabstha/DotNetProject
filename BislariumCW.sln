@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BisleriumCW", "BisleriumCW.csproj", "{E6865CCD-F382-4B2D-BB9C-503EB367A92D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6865CCD-F382-4B2D-BB9C-503EB367A92D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6865CCD-F382-4B2D-BB9C-503EB367A92D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6865CCD-F382-4B2D-BB9C-503EB367A92D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6865CCD-F382-4B2D-BB9C-503EB367A92D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BB229915-C582-443E-9BD9-9F3BB2C1DFE8}
+	EndGlobalSection
+EndGlobal
