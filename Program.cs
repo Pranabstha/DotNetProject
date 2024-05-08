@@ -1,5 +1,6 @@
 using BislariumCW.Data;
 using BislariumCW.Extensions;
+using BislariumCW.Interfaces;
 using BislariumCW.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,11 +21,15 @@ builder.Services.ConfigureMapping();
 builder.Services.ConfigureLoggerService();
 builder.Services.ConfigureRepositoryManager();
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddScoped<UserAuthenticationRepository, UserAuthenticationRepository>();
+builder.Services.AddScoped<IUserAuthenticationRepository, UserAuthenticationRepository>();
 
 builder.Services.AddAuthentication();
 builder.Services.ConfigureIdentity();
 builder.Services.ConfigureJWT(builder.Configuration);
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.ConfigureSwagger();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 

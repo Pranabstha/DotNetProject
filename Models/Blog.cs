@@ -19,11 +19,17 @@ namespace BislariumCW.Models
 
         public DateTime UpdatedAt { get; set; }
 
+        public int UpVote { get; set; }
+
+        public int DownVote { get; set; }
+
+        public double Popularity { get; set; }
+
         public bool IsDeleted { get; set; }
 
         [Required]
         public string UserId { get; set; }
-        
+
         [ForeignKey("UserId")]
         public ApplicationUser User { get; set; }
     }
