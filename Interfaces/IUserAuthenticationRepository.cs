@@ -9,6 +9,6 @@ namespace BislariumCW.Interfaces
         Task<IdentityResult> RegisterUserAsync(UserRegistrationDto userForRegistration);
         Task<bool> ValidateUserAsync(UserLoginDto loginDto);
         Task<string> GenerateTokenAsync();
-        string GetUserId();
+        public string GetUserId();
     }
 }

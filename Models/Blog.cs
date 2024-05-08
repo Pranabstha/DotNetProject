@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using BislariumCW.Models;
+using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -25,6 +26,6 @@ namespace BislariumCW.Models
         public string UserId { get; set; }
         
         [ForeignKey("UserId")]
-        public ApplicationUser User { get; set; }
+        public virtual ApplicationUser User { get; set; }
     }
 }

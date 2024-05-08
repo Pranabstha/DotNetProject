@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace BisleriumCW.Migrations
+namespace BislariumCW.Migrations
 {
     /// <inheritdoc />
     public partial class InitialMIgration : Migration
