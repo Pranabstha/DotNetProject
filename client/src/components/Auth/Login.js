@@ -23,6 +23,9 @@ const Login = () => {
             const response = await axios.post('https://localhost:7212/api/user-authentication/login', formData);
 
             if (response.data.token) {
+                // Store the token in local storage
+                localStorage.setItem('token', response.data.token);
+
                 // Reset form data
                 setFormData({ userName: '', password: '' });
 
@@ -66,7 +69,7 @@ const Login = () => {
                         />
                     </div>
                 </div>
-                <button type="submit" className="btn btn-primary py-3">Login</button>
+                <button type="submit" className="btn btn-login py-3">Login</button>
             </form>
         </div>
     );

@@ -28,11 +28,9 @@ builder.Services.ConfigureJWT(builder.Configuration);
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowLocalhost3000",
-        builder =>
+        build =>
         {
-            builder.WithOrigins("http://localhost:3000")
-                .AllowAnyMethod()
-                .AllowAnyHeader();
+            build.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader();
         });
 });
 
