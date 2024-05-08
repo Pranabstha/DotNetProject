@@ -20,7 +20,7 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('/api/user-authentication/login', formData);
+            const response = await axios.post('https://localhost:7212/api/user-authentication/login', formData);
 
             if (response.data.token) {
                 // Reset form data

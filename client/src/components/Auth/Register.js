@@ -1,9 +1,17 @@
 ﻿import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import TextInput from '../Common/TextInput';
 
 const Register = () => {
-    const [formData, setFormData] = useState({ username: '', name: '', email: '', password: '', confirmPassword: '' });
+    const [formData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        userName: '',
+        password: '',
+        email: '',
+        phoneNumber: ''
+    });
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
@@ -11,20 +19,42 @@ const Register = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Perform client-side form validation
-        if (formData.password !== formData.confirmPassword) {
-            setError('Passwords do not match');
-            return;
+        try {
+            // Make a POST request to the registration endpoint
+            const response = await axios.post('https://localhost:7212/api/user-authentication', {
+                firstName: formData.firstName,
+                lastName: formData.lastName,
+                userName: formData.userName,
+                password: formData.password,
+                email: formData.email,
+                phoneNumber: formData.phoneNumber
+            });
+            console.log(response.status)
+            // Check if registration was successful
+            if (response.status === 201) {
+                // Reset form data
+                setFormData({
+                    firstName: '',
+                    lastName: '',
+                    userName: '',
+                    password: '',
+                    email: '',
+                    phoneNumber: ''
+                });
+                // Show success message
+                alert('Registration successful! You can now log in.');
+                // Redirect to the login page
+                navigate('/login');
+            } else {
+                throw new Error('Registration failed');
+            }
+        } catch (error) {
+            console.error(error.response);
+            // Handle registration failure
+            setError('Registration failed. Please try again later.');
         }
-
-        // Add registration logic here (replace this with actual registration code)
-        console.log(formData);
-        // Simulate successful registration
-        alert('Registration successful! You can now log in.');
-        // Redirect to the login page
-        navigate('/login');
     };
 
     return (
@@ -33,17 +63,24 @@ const Register = () => {
             {error && <div className="alert alert-danger">{error}</div>}
             <form onSubmit={handleSubmit}>
                 <TextInput
-                    label="Username"
+                    label="First Name"
                     type="text"
-                    name="username"
-                    value={formData.username}
+                    name="firstName"
+                    value={formData.firstName}
                     onChange={handleChange}
                 />
                 <TextInput
-                    label="Name"
+                    label="Last Name"
                     type="text"
-                    name="name"
-                    value={formData.name}
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                />
+                <TextInput
+                    label="Username"
+                    type="text"
+                    name="userName"
+                    value={formData.userName}
                     onChange={handleChange}
                 />
                 <TextInput
@@ -61,10 +98,10 @@ const Register = () => {
                     onChange={handleChange}
                 />
                 <TextInput
-                    label="Confirm Password"
-                    type="password"
-                    name="confirmPassword"
-                    value={formData.confirmPassword}
+                    label="Phone Number"
+                    type="text"
+                    name="phoneNumber"
+                    value={formData.phoneNumber}
                     onChange={handleChange}
                 />
                 <button type="submit" className="btn btn-primary">Register</button>
